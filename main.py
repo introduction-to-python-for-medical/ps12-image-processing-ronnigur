@@ -11,7 +11,6 @@ img = load_image(path_to_image)
 
 # Perform edge detection
 edges = edge_detection(img)
-
 path_to_save = "./output.png"
 # Save the image
 save_image(edges, path_to_save)
