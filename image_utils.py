@@ -16,7 +16,7 @@ def edge_detection(img):
     vertical_kernel = np.array([[1, 0, -1], [2, 0, -2], [1, 0, -1]])
     
     # Apply median filter to reduce noise
-    clear_image = median(img, disk(1))
+    clear_image = median(img, disk(3))
     
     # Convolve with horizontal and vertical kernels
     edge_x = convolve2d(clear_image, horizontal_kernel, mode='same', boundary='fill', fillvalue=0)
@@ -26,7 +26,7 @@ def edge_detection(img):
     edge_mag = np.sqrt(edge_x**2 + edge_y**2)
     
     # Dynamic threshold using mean or Otsu method (can be adjusted)
-    threshold = np.mean(edge_mag) * 1.5  # Can experiment with the multiplier
+    threshold = np.mean(edge_mag) * 1.3  
     
     # Apply the threshold to create a binary image
     edge_mag_binary = (edge_mag > threshold).astype(np.uint8) * 255  # Scale to 0-255
