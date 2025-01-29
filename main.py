@@ -1,3 +1,4 @@
+import load_image,edge_detection from image_utils.py
 
 def save_image(img, path):
     img = Image.fromarray(img)
